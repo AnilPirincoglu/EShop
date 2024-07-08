@@ -12,7 +12,7 @@ namespace EShop.Catalog.Entities
         public decimal productPrice { get; set; }
         public string productDescription { get; set; }
         public string productImage { get; set; }
-        public string productCategory { get; set; }
+        public string categoryId { get; set; }
 
         [BsonIgnore]
         public Category category { get; set; }
