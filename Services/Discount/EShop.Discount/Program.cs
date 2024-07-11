@@ -1,6 +1,11 @@
+using EShop.Discount.Contexts;
+using EShop.Discount.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<DapperContext, DapperContext>();
+builder.Services.AddTransient<ICouponService, CouponService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
