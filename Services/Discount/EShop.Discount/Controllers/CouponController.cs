@@ -25,9 +25,9 @@ namespace EShop.Discount.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCoupon(int code)
+        public async Task<IActionResult> GetByIdCoupon(int id)
         {
-            var coupon = await _discountService.GetByIdCouponAsync(code);
+            var coupon = await _discountService.GetByIdCouponAsync(id);
             return Ok(coupon);
         }
 
