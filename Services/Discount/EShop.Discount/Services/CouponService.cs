@@ -5,11 +5,11 @@ using System.Net.Http.Headers;
 
 namespace EShop.Discount.Services
 {
-    public class DiscountService : IDiscountService
+    public class CouponService : ICouponService
     {
         private readonly DapperContext _dapperContext;
 
-        public DiscountService(DapperContext dapperContext)
+        public CouponService(DapperContext dapperContext)
         {
             _dapperContext = dapperContext;
         }
@@ -39,7 +39,7 @@ namespace EShop.Discount.Services
             }
         }
 
-        public async Task<List<ResultCouponDto>> GetAllCoupons()
+        public async Task<List<ResultCouponDto>> GetAllCouponsAsync()
         {
             string query = "SELECT * FROM Coupon";
             using (var connection = _dapperContext.createConnection())
@@ -49,7 +49,7 @@ namespace EShop.Discount.Services
             }
         }
 
-        public async Task<GetByIdCouponDto> GetByIdCoupon(int id)
+        public async Task<GetByIdCouponDto> GetByIdCouponAsync(int id)
         {
             string query = "SELECT * FROM Coupon WHERE CouponId = @couponId";
             var parameters = new DynamicParameters();

@@ -2,10 +2,10 @@
 
 namespace EShop.Discount.Services
 {
-    public interface IDiscountService
+    public interface ICouponService
     {
-        Task<List<ResultCouponDto>> GetAllCoupons();
-        Task<GetByIdCouponDto> GetByIdCoupon(int id);
+        Task<List<ResultCouponDto>> GetAllCouponsAsync();
+        Task<GetByIdCouponDto> GetByIdCouponAsync(int id);
         Task CreateCouponAsync(CreateCouponDto createCouponDto);
         Task UpdateCouponAsync(UpdateCouponDto updateCouponDto);
         Task DeleteCouponAsync(int id);
