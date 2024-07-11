@@ -7,13 +7,13 @@ namespace EShop.Catalog.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string productDetailId { get; set; }
-        public string productDescription { get; set; }
-        public string productInformation { get; set; }
-        public string productId { get; set; }
+        public string ProductDetailId { get; set; }
+        public string ProductDescription { get; set; }
+        public string ProductInformation { get; set; }
+        public string ProductId { get; set; }
 
         [BsonIgnore]
-        public Product product { get; set; }
+        public Product Product { get; set; }
 
     }
 }

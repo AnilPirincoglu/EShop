@@ -2,11 +2,11 @@
 {
     public interface IDatabaseSettings
     {
-        public string categoryCollectionName { get; set; }
-        public string productCollectionName { get; set; }
-        public string productDetailCollectionName { get; set; }
-        public string productImageCollectionName { get; set; }
-        public string connectionString { get; set; }
-        public string databaseName { get; set; }
+        public string CategoryCollectionName { get; set; }
+        public string ProductCollectionName { get; set; }
+        public string ProductDetailCollectionName { get; set; }
+        public string ProductImageCollectionName { get; set; }
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }
     }
 }

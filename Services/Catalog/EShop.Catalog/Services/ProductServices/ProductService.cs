@@ -13,9 +13,9 @@ namespace EShop.Catalog.Services.ProductServices
 
         public ProductService(IMapper mapper, IDatabaseSettings _databaseSettings)
         {
-            var client = new MongoClient(_databaseSettings.connectionString);
-            var database = client.GetDatabase(_databaseSettings.databaseName);
-            _productCollection = database.GetCollection<Product>(_databaseSettings.productCollectionName);
+            var client = new MongoClient(_databaseSettings.ConnectionString);
+            var database = client.GetDatabase(_databaseSettings.DatabaseName);
+            _productCollection = database.GetCollection<Product>(_databaseSettings.ProductCollectionName);
             _mapper = mapper;
         }
 
@@ -27,7 +27,7 @@ namespace EShop.Catalog.Services.ProductServices
 
         public async Task DeleteProductAsync(string id)
         {
-            await _productCollection.DeleteOneAsync(x => x.productId == id);
+            await _productCollection.DeleteOneAsync(x => x.ProductId == id);
         }
 
         public async Task<List<ResultProductDto>> GetAllProductAsync()
@@ -38,14 +38,14 @@ namespace EShop.Catalog.Services.ProductServices
 
         public async Task<GetByIdProductDto> GetByIdProductAsync(string id)
         {
-            var product = await _productCollection.Find(x => x.productId == id).FirstOrDefaultAsync();
+            var product = await _productCollection.Find(x => x.ProductId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdProductDto>(product);
         }
 
         public async Task UpdateProductAsync(UpdateProductDto updateProductDto)
         {
             var product = _mapper.Map<Product>(updateProductDto);
-            await _productCollection.ReplaceOneAsync(x => x.productId == updateProductDto.productId, product);
+            await _productCollection.ReplaceOneAsync(x => x.ProductId == updateProductDto.ProductId, product);
         }
     }
 }

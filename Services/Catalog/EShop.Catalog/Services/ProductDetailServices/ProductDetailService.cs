@@ -13,9 +13,9 @@ namespace EShop.Catalog.Services.ProductDetailServices
 
         public ProductDetailService(IMapper mapper, IDatabaseSettings _databaseSettings)
         {
-            var client = new MongoClient(_databaseSettings.connectionString);
-            var database = client.GetDatabase(_databaseSettings.databaseName);
-            _productDetailCollection = database.GetCollection<ProductDetail>(_databaseSettings.productDetailCollectionName);
+            var client = new MongoClient(_databaseSettings.ConnectionString);
+            var database = client.GetDatabase(_databaseSettings.DatabaseName);
+            _productDetailCollection = database.GetCollection<ProductDetail>(_databaseSettings.ProductDetailCollectionName);
             _mapper = mapper;
         }
 
@@ -27,7 +27,7 @@ namespace EShop.Catalog.Services.ProductDetailServices
 
         public async Task DeleteProductDetailAsync(string id)
         {
-            await _productDetailCollection.DeleteOneAsync(x => x.productId == id);
+            await _productDetailCollection.DeleteOneAsync(x => x.ProductId == id);
         }
 
         public async Task<List<ResultProductDetailDto>> GetAllProductDetailAsync()
@@ -38,14 +38,14 @@ namespace EShop.Catalog.Services.ProductDetailServices
 
         public async Task<GetByIdProductDetailDto> GetByIdProductDetailAsync(string id)
         {
-            var productDetail = await _productDetailCollection.Find(x => x.productId == id).FirstOrDefaultAsync();
+            var productDetail = await _productDetailCollection.Find(x => x.ProductId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdProductDetailDto>(productDetail);
         }
 
         public async Task UpdateProductDetailAsync(UpdateProductDetailDto updateProductDetailDto)
         {
             var productDetail = _mapper.Map<ProductDetail>(updateProductDetailDto);
-            await _productDetailCollection.ReplaceOneAsync(x => x.productId == updateProductDetailDto.productId, productDetail);
+            await _productDetailCollection.ReplaceOneAsync(x => x.ProductId == updateProductDetailDto.ProductId, productDetail);
         }
     }
 }

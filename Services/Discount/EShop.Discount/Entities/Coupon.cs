@@ -2,10 +2,10 @@
 {
     public class Coupon
     {
-        public int couponId { get; set; }
-        public string code { get; set; }
-        public int rate { get; set; }
-        public bool isActive { get; set; }
-        public DateTime validDate { get; set; }
+        public int CouponId { get; set; }
+        public string Code { get; set; }
+        public int Rate { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime ValidDate { get; set; }
     }
 }

@@ -13,9 +13,9 @@ namespace EShop.Catalog.Services.ProductImagesServices
 
         public ProductImagesService(IMapper mapper, IDatabaseSettings _databaseSettings)
         {
-            var client = new MongoClient(_databaseSettings.productImageCollectionName);
-            var database = client.GetDatabase(_databaseSettings.databaseName);
-            _productImagesCollection = database.GetCollection<ProductImages>(_databaseSettings.productImageCollectionName);
+            var client = new MongoClient(_databaseSettings.ProductImageCollectionName);
+            var database = client.GetDatabase(_databaseSettings.DatabaseName);
+            _productImagesCollection = database.GetCollection<ProductImages>(_databaseSettings.ProductImageCollectionName);
             _mapper = mapper;
         }
 
@@ -27,7 +27,7 @@ namespace EShop.Catalog.Services.ProductImagesServices
 
         public async Task DeleteProductImagesAsync(string id)
         {
-            await _productImagesCollection.DeleteOneAsync(x => x.productImageId == id);
+            await _productImagesCollection.DeleteOneAsync(x => x.ProductImageId == id);
         }
 
         public async Task<List<ResultProductImagesDto>> GetAllProductImagesAsync()
@@ -38,14 +38,14 @@ namespace EShop.Catalog.Services.ProductImagesServices
 
         public async Task<GetByIdProductImagesDto> GetByIdProductImagesAsync(string id)
         {
-            var productImage =await _productImagesCollection.Find(x => x.productImageId == id).FirstOrDefaultAsync();
+            var productImage =await _productImagesCollection.Find(x => x.ProductImageId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdProductImagesDto>(productImage);
         }
 
         public async Task UpdateProductImagesAsync(UpdateProductImagesDto updateProductImageDto)
         {
             var productImage = _mapper.Map<ProductImages>(updateProductImageDto);
-            await _productImagesCollection.ReplaceOneAsync(x => x.productImageId == updateProductImageDto.productImageId, productImage);
+            await _productImagesCollection.ReplaceOneAsync(x => x.ProductImageId == updateProductImageDto.ProductImageId, productImage);
         }
     }
 }
