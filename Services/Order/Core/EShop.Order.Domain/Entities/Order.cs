@@ -12,7 +12,7 @@ namespace EShop.Order.Domain.Entities
         public string UserId { get; set; }
         public decimal OrderTotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
-        public Adress Adress { get; set; }
+        public Address Address { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
     }
 }
