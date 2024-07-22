@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EShop.Order.Persistence.Repositories
 {
-    internal class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly OrderContext _context;
 
