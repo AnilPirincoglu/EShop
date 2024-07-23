@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace EShop.Order.Domain.Entities
 {
     public class Ordering
     {
+        [Key]
         public int OrderId { get; set; }
         public string UserId { get; set; }
         public decimal OrderTotalPrice { get; set; }
