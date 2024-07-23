@@ -12,7 +12,7 @@ namespace EShop.Order.Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=ANILPC;initial Catalog=EShopOrderDb;integrated Security=true;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Server=localhost,1440;initial Catalog=EShopOrderDb;TrustServerCertificate=true;User=sa;Password=numeros1305Ya.");
         }
 
         public DbSet<Address> Addresses { get; set; }
