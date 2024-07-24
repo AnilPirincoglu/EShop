@@ -47,21 +47,21 @@ namespace EShop.Order.WebApi.Controllers
         public async Task<IActionResult> CreateAddress([FromBody] CreateAddressCommand createAddressCommand)
         {
             await _createAddressCommandHandler.Handle(createAddressCommand);
-            return Ok("Address Created Successfuly");
+            return Ok("Address Created Successfully");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateAddress([FromBody] UpdateAddressCommand updateAddressCommand)
         {
             await _updateAddressCommandHandler.Handle(updateAddressCommand);
-            return Ok("Address Updated Successfuly");
+            return Ok("Address Updated Successfully");
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAddress(int id)
         {
             await _deleteAddressCommandHandler.Handle(new DeleteAddressCommand(id));
-            return Ok("Address Deleted Successfuly");
+            return Ok("Address Deleted Successfully");
         }
     }
 }

@@ -35,21 +35,21 @@ namespace EShop.Order.WebApi.Controllers
         public async Task<IActionResult> CreateOrdering([FromBody] CreateOrderingCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Order Created Successfuly");
+            return Ok("Order Created Successfully");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateOrdering([FromBody] UpdateOrderingCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Order Updated Successfuly");
+            return Ok("Order Updated Successfully");
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrdering(int id)
         {
             await _mediator.Send(new DeleteOrderingCommand(id));
-            return Ok("Order Deleted Successfuly");
+            return Ok("Order Deleted Successfully");
         }
 
     }

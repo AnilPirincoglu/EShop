@@ -47,21 +47,21 @@ namespace EShop.Order.WebApi.Controllers
         public async Task<IActionResult> CreateOrderDetail([FromBody] CreateOrderDetailCommand createOrderDetailCommand)
         {
             await _createOrderDetailCommandHandler.Handle(createOrderDetailCommand);
-            return Ok("OrderDetail Created Successfuly");
+            return Ok("OrderDetail Created Successfully");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateOrderDetail([FromBody] UpdateOrderDetailCommand updateOrderDetailCommand)
         {
             await _updateOrderDetailCommandHandler.Handle(updateOrderDetailCommand);
-            return Ok("OrderDetail Updated Successfuly");
+            return Ok("OrderDetail Updated Successfully");
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrderDetail(int id)
         {
             await _deleteOrderDetailCommandHandler.Handle(new DeleteOrderDetailCommand(id));
-            return Ok("OrderDetail Deleted Successfuly");
+            return Ok("OrderDetail Deleted Successfully");
         }
     }
 }
