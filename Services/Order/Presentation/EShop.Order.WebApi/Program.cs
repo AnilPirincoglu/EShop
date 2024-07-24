@@ -1,12 +1,15 @@
 using EShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
 using EShop.Order.Application.Interfaces;
 using EShop.Order.Application.Services;
+using EShop.Order.Persistence.Context;
 using EShop.Order.Persistence.Repositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<OrderContext>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddApplicationService(builder.Configuration);
