@@ -1,4 +1,5 @@
 using EShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
+using EShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
 using EShop.Order.Application.Interfaces;
 using EShop.Order.Application.Services;
 using EShop.Order.Persistence.Context;
@@ -21,11 +22,11 @@ builder.Services.AddScoped<CreateAddressCommandHandler>();
 builder.Services.AddScoped<UpdateAddressCommandHandler>();
 builder.Services.AddScoped<DeleteAddressCommandHandler>();
 
-builder.Services.AddScoped<GetAddressByIdQueryHandler>();
-builder.Services.AddScoped<GetAddressQueryHandler>();
-builder.Services.AddScoped<CreateAddressCommandHandler>();
-builder.Services.AddScoped<UpdateAddressCommandHandler>();
-builder.Services.AddScoped<DeleteAddressCommandHandler>();
+builder.Services.AddScoped<GetOrderDetailByIdQueryHandler>();
+builder.Services.AddScoped<GetOrderDetailQueryHandler>();
+builder.Services.AddScoped<CreateOrderDetailCommandHandler>();
+builder.Services.AddScoped<UpdateOrderDetailCommandHandler>();
+builder.Services.AddScoped<DeleteOrderDetailCommandHandler>();
 #endregion
 
 builder.Services.AddControllers();
